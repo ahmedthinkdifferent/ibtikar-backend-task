@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "ahmed123",
+    "database": "ibtikar",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "local": {
+    "username": "ahmed",
+    "password": "ahmed1",
+    "database": "ibtikar",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
