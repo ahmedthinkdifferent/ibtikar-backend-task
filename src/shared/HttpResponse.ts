@@ -1,6 +1,9 @@
-import { Injectable, Scope } from '@nestjs/common';
+import { HttpStatus, Injectable, Scope } from '@nestjs/common';
 import { AppLogger } from './app-logger.service';
-
+import { TranslatorService } from 'nestjs-translator';
+import { ModuleRef } from '@nestjs/core';
+import { ResponseStatusCodeConst } from '../constant/ResponseStatusCodeConst';
+import { BaseAppException } from '../http/exceptions/BaseAppException';
 
 @Injectable({ scope: Scope.TRANSIENT })
 export class HttpResponse {
@@ -53,11 +56,11 @@ export class HttpResponse {
   }
 
   send(req, res) {
-    return res.code(this.serverCode).send(this.buildResponseBody(req));
+    return res.status(this.serverCode).send(this.buildResponseBody(req));
   }
 
   sendResponseBody(res, body) {
-    return res.code(this.serverCode).send(body);
+    return res.status(this.serverCode).send(body);
   }
 
   getBody(req) {
@@ -72,7 +75,7 @@ export class HttpResponse {
       this.message = this.translator.translate(this.message, { lang: lang });
     }
     response['message'] = this.message;
-    if (process.env.NODE_ENV !== AppEnvironments.PRODUCTION) {
+    if (process.env.NODE_ENV !== 'production') {
       response['devMessage'] = this.devMessage;
     } else {
       response['devMessage'] = null;
@@ -90,13 +93,13 @@ export class HttpResponse {
     } else {
       response['message'] = exception.message;
     }
-    if (configLoader.config.env !== AppEnvironments.PRODUCTION) {
+    if (process.env.NODE_ENV !== 'production') {
       response['devMessage'] = exception.devMessage ?? exception.stack;
     } else {
       response['devMessage'] = null;
     }
 
-    return res.code(exception.getStatus()).send(response);
+    return res.status(exception.getStatus()).send(response);
   }
 
   sendNotHandledException(exception: Error, req: any, res: any) {
@@ -105,7 +108,7 @@ export class HttpResponse {
     response['message'] = this.translator.translate('messages_server_error', {
       lang: lang,
     });
-    if (configLoader.config.env !== AppEnvironments.PRODUCTION) {
+    if (process.env.NODE_ENV !== 'production') {
       response['devMessage'] = exception.stack ?? null;
     } else {
       response['devMessage'] = null;
@@ -118,7 +121,7 @@ export class HttpResponse {
     } else {
       response['statusCode'] = ResponseStatusCodeConst.SERVER_ERROR;
     }
-    return res.code(statusCode).send(response);
+    return res.status(statusCode).send(response);
   }
 
   private static getLanguageFromReq(req: any) {

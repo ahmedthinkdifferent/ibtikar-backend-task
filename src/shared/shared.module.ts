@@ -10,8 +10,7 @@ const providers = [HttpResponse, JwtAuthService, AppLogger, EncryptService];
 const imports = [
   JwtModule.registerAsync({
     useFactory: () => ({
-      secret:
-        'zupM2Ssji2Q/Hd0fo4Z3K8m4c2NdYtkAPnc0sdmnae7CyMiyVY6BxvoffRSqgWzi4Kqp6bxGAuIw7LvBkNUIyA==',
+      secret: process.env.JWT_SECRET,
     }),
   }),
 ];
