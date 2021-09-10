@@ -2,9 +2,15 @@ import { Global, Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UserRepository } from './repositories/UserRepository';
 import { User } from './models/User';
+import { Product } from './models/Product';
+import { ProductImages } from './models/ProductImages';
+import { ProductsCategories } from './models/ProductsCategories';
+import { Order } from './models/Order';
+import { OrderProducts } from './models/OrderProducts';
 
 const models = [
-  User,
+  User, Product, ProductImages, ProductsCategories,
+  Order, OrderProducts,
 ];
 const repositories = [
   UserRepository,
@@ -12,7 +18,7 @@ const repositories = [
 
 const imports = [
   SequelizeModule.forRootAsync({
-    useFactory: args => {
+    useFactory: () => {
       return {
         dialect: 'mysql',
         host: process.env.DB_HOST,

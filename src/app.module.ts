@@ -5,6 +5,8 @@ import { HttpExceptionFilter } from './http/exceptions/expcetion-filter/HttpExce
 import { DbModule } from './database/db.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './http/api/v1/auth/auth.module';
+import { ProductsModule } from './http/api/v1/products/products.module';
+import { OrdersModule } from './http/api/v1/orders/orders.module';
 
 @Module({
   imports: [
@@ -15,7 +17,9 @@ import { AuthModule } from './http/api/v1/auth/auth.module';
     }),
     DbModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+    ProductsModule,
+    OrdersModule,
   ],
   providers: [
     {

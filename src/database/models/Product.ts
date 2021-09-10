@@ -22,5 +22,5 @@ export class Product extends Model<Product> {
   @HasMany(() => ProductImages, {
     foreignKey: 'productId',
   })
-  images: ProductImages;
+  images: ProductImages[];
 }

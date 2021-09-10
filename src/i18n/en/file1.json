@@ -5,5 +5,7 @@
   "messages_unauthorized": "User unauthorized",
   "messages_validation_error": "Validation error",
   "email_exists_before": "Email address exists before",
-  "user_registered": "User registered successfully"
+  "user_registered": "User registered successfully",
+  "check_order_products": "Check order products",
+  "order_created": "Order created successfully"
 }
