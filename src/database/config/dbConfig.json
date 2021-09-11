@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
+    "username": "ahmed",
     "password": "ahmed123",
     "database": "ibtikar",
-    "host": "127.0.0.1",
+    "host": "ibtikar.cluster-cg000cxwfnrs.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "local": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "",
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "ahmed",
+    "password": "ahmed123",
+    "database": "ibtikar",
+    "host": "ibtikar.cluster-cg000cxwfnrs.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }

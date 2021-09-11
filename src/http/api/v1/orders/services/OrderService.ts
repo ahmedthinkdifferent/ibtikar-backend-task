@@ -27,6 +27,7 @@ export class OrderService {
         userId, status: OrderStatus.PENDING, total: total.orderTotal,
         userPhone: data.userPhone, userEmail: data.userEmail, userAddress: data.userAddress,
       }, { transaction });
+
       //2-create order products.
       for (const p of total.products) {
         const orderProduct = Object.assign({}, p, { orderId: order.id });

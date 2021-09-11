@@ -1,5 +1,5 @@
 import { HttpStatus, Injectable, Scope } from '@nestjs/common';
-import { AppLogger } from './app-logger.service';
+import { AppLogger } from './AppLogger';
 import { TranslatorService } from 'nestjs-translator';
 import { ModuleRef } from '@nestjs/core';
 import { ResponseStatusCodeConst } from '../constant/ResponseStatusCodeConst';

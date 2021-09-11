@@ -2,7 +2,7 @@ import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
 import { HttpResponse } from '../../../shared/HttpResponse';
 import { BaseAppException } from '../BaseAppException';
 import { ModuleRef } from '@nestjs/core';
-import { AppLogger } from '../../../shared/app-logger.service';
+import { AppLogger } from '../../../shared/AppLogger';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {

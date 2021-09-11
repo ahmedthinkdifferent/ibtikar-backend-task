@@ -2,7 +2,7 @@ import { JwtModule } from '@nestjs/jwt';
 import EncryptService from './EncryptService';
 import { HttpResponse } from './HttpResponse';
 import { JwtAuthService } from './JwtAuthService';
-import { AppLogger } from './app-logger.service';
+import { AppLogger } from './AppLogger';
 import { Global, Module } from '@nestjs/common';
 
 const providers = [HttpResponse, JwtAuthService, AppLogger, EncryptService];
