@@ -126,7 +126,7 @@ export class HttpResponse {
 
   private static getLanguageFromReq(req: any) {
     const lang = req.headers['accept-language'];
-    if (lang !== 'en' || lang !== 'ar') {
+    if (lang !== 'en' && lang !== 'ar') {
       return 'en';
     }
     return lang;
